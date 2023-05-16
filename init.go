@@ -42,6 +42,11 @@ func init() {
 	Init()
 }
 
+func main() {
+	Init()
+	return
+}
+
 // func getMachineAddr() string {
 // 	localIP, err := netutil.GetLocalIP()
 // 	if err != nil {
