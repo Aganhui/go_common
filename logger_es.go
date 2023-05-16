@@ -1,4 +1,4 @@
-package logger
+package main
 
 import (
 	"time"
@@ -13,7 +13,7 @@ func Debuge(template string, args ...interface{}) {
 		Debugf(template, args...)
 }
 
-//Info info
+// Info info
 func Infoe(template string, args ...interface{}) {
 	Sugar().With(zap.String("task_id", logTag.TaskID)).
 		With(zap.String("machine_addr", logTag.MachineAddr)).

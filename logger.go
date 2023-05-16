@@ -1,4 +1,4 @@
-package logger
+package main
 
 import (
 	"context"
@@ -22,7 +22,7 @@ func Debug(args ...interface{}) {
 	return
 }
 
-//Info info
+// Info info
 func Info(args ...interface{}) {
 	sugar.Info(args...)
 	return
@@ -43,7 +43,7 @@ func Debugf(template string, args ...interface{}) {
 	return
 }
 
-//Info info
+// Info info
 func Infof(template string, args ...interface{}) {
 	sugar.Infof(template, args...)
 	return
