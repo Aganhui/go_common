@@ -18,7 +18,7 @@ const (
 )
 
 var (
-	confFile = "configs/config.yaml"
+	confFile = "configs/configs.yaml"
 	sugar    = &zap.SugaredLogger{} // skip 1
 	sugar0   = &zap.SugaredLogger{} // skip 0
 	logTag   = &LogTag{}
@@ -57,7 +57,7 @@ func Init() {
 	// init log
 	file, err := ioutil.ReadFile(confFile)
 	if err != nil {
-		log.Fatalf("logger read config file %s err: %s", confFile, err.Error())
+		log.Printf("logger read config file %s err: %s", confFile, err.Error())
 	}
 	yamlString := string(file)
 
