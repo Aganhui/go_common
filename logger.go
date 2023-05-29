@@ -1,4 +1,4 @@
-package main
+package logger
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	//jarvandeng: 统一日志上报字段名
+	// jarvandeng: 统一日志上报字段名
 	ContextTraceID     = "xverseTraceId"
 	ContextRoomID      = "xverseRoomId"
 	ContextUserID      = "xverseUserId"
@@ -143,7 +143,6 @@ func WithOutgoingContext(ctx context.Context) *zap.SugaredLogger {
 }
 
 func NewGrpcCtx(md metadata.MD) context.Context {
-
 	return nil
 }
 
@@ -157,7 +156,6 @@ func GetKeyFromIncomingCtx(ctx context.Context, key string) string {
 		return v[0]
 	}
 	return ""
-
 }
 
 func GetKeyFromOutgoingCtx(ctx context.Context, key string) string {
@@ -170,5 +168,4 @@ func GetKeyFromOutgoingCtx(ctx context.Context, key string) string {
 		return v[0]
 	}
 	return ""
-
 }

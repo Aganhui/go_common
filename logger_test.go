@@ -1,4 +1,4 @@
-package main
+package logger
 
 import (
 	"context"
@@ -39,5 +39,4 @@ func TestLogger(t *testing.T) {
 	val := GetKeyFromIncomingCtx(ictx, ContextSessionID)
 	l = WithIncomingContext(ictx)
 	l.Info("session id is ", val)
-
 }
