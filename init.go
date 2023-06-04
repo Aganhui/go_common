@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"time"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -14,7 +13,7 @@ import (
 )
 
 const (
-	defaultLogFile = "./logs/app"
+	defaultLogFile = "./logs/app.log"
 )
 
 var (
@@ -75,9 +74,9 @@ func Init() {
 	if lcfg.LogFile == "" {
 		lcfg.LogFile = defaultLogFile
 	}
-	timestamp := time.Now().UTC().Format("20060102_150405.000")
-	timepostfix := fmt.Sprintf(".%s.log", timestamp)
-	lcfg.LogFile += timepostfix
+	// timestamp := time.Now().UTC().Format("20060102_150405.000")
+	// timepostfix := fmt.Sprintf(".%s.log", timestamp)
+	// lcfg.LogFile += timepostfix
 	var l zapcore.Level
 	err = l.UnmarshalText([]byte(lcfg.LogLevel))
 	if err != nil {
