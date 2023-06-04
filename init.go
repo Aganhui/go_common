@@ -30,8 +30,8 @@ type LogTag struct {
 }
 
 type LogConfig struct {
-	LogLevel string `json:"logLevel"`
-	LogFile  string `json:"logFile"`
+	LogLevel string `yaml:"log_level" json:"log_level"`
+	LogFile  string `yaml:"log_file"  json:"log_file"`
 }
 
 func Sugar() *zap.SugaredLogger {
@@ -55,14 +55,17 @@ func Init() {
 	}
 
 	// init log
+	// log.Printf("config file: %s\n", confFile)
 	file, err := ioutil.ReadFile(confFile)
 	if err != nil {
 		log.Printf("logger read config file %s err: %s", confFile, err.Error())
 	}
 	yamlString := string(file)
+	// log.Printf("yaml string: %s\n", yamlString)
 
 	lcfg := &LogConfig{}
 	err = yaml.Unmarshal([]byte(yamlString), lcfg)
+	// log.Printf("log file: %s\n", lcfg.LogFile)
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
